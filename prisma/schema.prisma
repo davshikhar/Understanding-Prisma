@@ -27,3 +27,9 @@ model Todo{
   userId Int
   user User @relation(fields:[userId],references: [id])
 }
+
+model Account{
+  id   Int @id @default(autoincrement())
+  email  String @unique
+  balance Int @default(0)
+}
