@@ -1,6 +1,6 @@
 import  express  from "express";
 import { PrismaClient } from "../generated/prisma";
-import { account } from "./transaction";
+import { account, UpdateBalance } from "./transaction";
 
 const app = express();
 const client = new PrismaClient();//create the instance of the PrismaClient
@@ -23,6 +23,7 @@ app.get("/users",async (req,res)=>{
 app.listen(3000);
 
 account();
+UpdateBalance();
 
 /*
 async function createUser() {
