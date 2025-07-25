@@ -7,7 +7,9 @@ const client = new PrismaClient();//create the instance of the PrismaClient
 
 app.use(express.json());
 
-app.get("/users",async (req,res)=>{
+app.get("/users/findall",async (req,res)=>{
+
+    const count = await client.user.count();
 
     const users = await client.user.findMany({
         include:{
@@ -17,7 +19,7 @@ app.get("/users",async (req,res)=>{
 
     console.log(users);
 
-    res.json({message:"check the console for the logs.",users});
+    res.json({users,count:count});
 })
 
 app.listen(3000);

@@ -95,7 +95,7 @@ export async function UpdateBalance(){
 
         //this is an operation performed in between the queries.
         if(sender.balance<0){
-            throw new Error(`${user1} has insufficient balance `);
+            throw new Error(`${user1} has insufficient balance`);
         }
 
         const receiver = await tx.account.update({
